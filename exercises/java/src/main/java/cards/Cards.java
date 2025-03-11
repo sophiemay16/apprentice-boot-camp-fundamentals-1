@@ -15,12 +15,6 @@ public class Cards {
         String[] result = new String[52];
         PlayingCardDeck deck = new PlayingCardDeck();
 
-        for (int suit = 0; suit < 4; suit++) {
-            for (int faceValue = 0; faceValue < 13; faceValue++) {
-                deck.getCards()[suit*13+faceValue] = new PlayingCard(mapToSuitName(suit), faceValue);
-            }
-        }
-
         int cardNumber = 0;
         for (PlayingCard card : deck.getCards()) {
             String faceValueName;
