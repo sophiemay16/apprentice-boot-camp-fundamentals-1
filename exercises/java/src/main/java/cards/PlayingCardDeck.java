@@ -1,7 +1,5 @@
 package cards;
 
-import static cards.Suit.mapToSuitName;
-
 public class PlayingCardDeck {
 
     private final PlayingCard[] cards;
@@ -11,7 +9,7 @@ public class PlayingCardDeck {
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                this.cards[suit*13+faceValue] = new PlayingCard(mapToSuitName(suit), faceValue);
+                this.cards[suit*13+faceValue] = new PlayingCard(new Suit(suit), faceValue);
             }
         }
     }

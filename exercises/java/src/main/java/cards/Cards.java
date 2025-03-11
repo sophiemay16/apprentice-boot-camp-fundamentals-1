@@ -1,7 +1,5 @@
 package cards;
 
-import static cards.Suit.mapToSuitName;
-
 public class Cards {
     public static void main(String[] args) {
         Cards cards = new Cards();
@@ -17,25 +15,7 @@ public class Cards {
 
         int cardNumber = 0;
         for (PlayingCard card : deck.getCards()) {
-            String faceValueName;
-            switch (card.faceValue){
-                case 0: faceValueName = "ace"; break;
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9: faceValueName = Integer.toString(card.faceValue+1); break;
-                case 10: faceValueName = "jack"; break;
-                case 11: faceValueName = "queen"; break;
-                case 12: faceValueName = "king"; break;
-                default: throw new IllegalArgumentException("Something went wrong " + card.faceValue + "is not a valid faceValue!");
-            }
-
-            result[cardNumber] = faceValueName + " of " + deck.getCards()[cardNumber].suit.getName();
+            result[cardNumber] = card.toString();
             cardNumber++;
         }
 
