@@ -13,16 +13,17 @@ public class Cards {
 
     public String[] getCards() {
         String[] result = new String[52];
-        PlayingCard[] deck = new PlayingCard[52];
+        PlayingCardDeck deck = new PlayingCardDeck();
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                deck[suit*13+faceValue] = new PlayingCard(mapToSuitName(suit), faceValue);
+                deck.getCards()[suit*13+faceValue] = new PlayingCard(mapToSuitName(suit), faceValue);
+                // deck.setCard([suit*13+faceValue], new PlayingCard(mapToSuitName(suit), faceValue)))
             }
         }
 
         int cardNumber = 0;
-        for (PlayingCard card : deck) {
+        for (PlayingCard card : deck.getCards()) {
             String faceValueName;
             switch (card.faceValue){
                 case 0: faceValueName = "ace"; break;
@@ -41,7 +42,7 @@ public class Cards {
                 default: throw new IllegalArgumentException("Something went wrong " + card.faceValue + "is not a valid faceValue!");
             }
 
-            result[cardNumber] = faceValueName + " of " + deck[cardNumber].suit.name;
+            result[cardNumber] = faceValueName + " of " + deck.getCards()[cardNumber].suit.name;
             cardNumber++;
         }
 
