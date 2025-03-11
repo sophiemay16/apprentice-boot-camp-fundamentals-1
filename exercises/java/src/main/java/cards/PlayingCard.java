@@ -9,5 +9,4 @@ public class PlayingCard {
         this.suit = suit;
         this.faceValue = faceValue;
     }
-
 }
