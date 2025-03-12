@@ -33,7 +33,7 @@ class Snap {
                     System.out.println("WRONG! deducting score from Player 1");
                     player1Score--;
                 }
-            } else if (input.length() > 0 && input.charAt(0) == 'l') {
+            } else if (!input.isEmpty() && input.charAt(0) == 'l') {
                 if (currentCard.snap(previousCard)) {
                     System.out.println("SNAP! scorePlayer 2");
                     player2Score++;
