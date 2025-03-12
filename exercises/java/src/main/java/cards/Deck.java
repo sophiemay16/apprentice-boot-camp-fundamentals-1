@@ -9,7 +9,9 @@ public abstract class Deck {
         Collections.shuffle(getListOfCards());
     }
 
-    abstract Card deal();
+    public Card deal() {
+        return getListOfCards().remove(0);
+    }
 
     abstract String[] getCards();
 

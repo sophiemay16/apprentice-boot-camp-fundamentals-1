@@ -29,9 +29,4 @@ class AnimalDeck extends Deck {
     public List<AnimalCard> getListOfCards() {
         return cards;
     }
-
-    @Override
-    public AnimalCard deal() {
-        return cards.remove(0);
-    }
 }
