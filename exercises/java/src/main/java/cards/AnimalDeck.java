@@ -1,11 +1,8 @@
 package cards;
 
 import java.util.ArrayList;
-import java.util.List;
 
 class AnimalDeck extends Deck {
-
-    private List<AnimalCard> cards;
 
     public AnimalDeck() {
         cards = new ArrayList<>();
@@ -19,14 +16,9 @@ class AnimalDeck extends Deck {
     public String[] getCards() {
         String[] result = new String[cards.size()];
         for (int i = 0; i < cards.size(); i++) {
-            AnimalCard card = cards.get(i);
+            Card card = cards.get(i);
             result[i] = card.toString();
         }
         return result;
-    }
-
-    @Override
-    public List<AnimalCard> getListOfCards() {
-        return cards;
     }
 }
