@@ -1,28 +1,27 @@
 package cards;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class PlayingCardDeck implements Deck {
 
-    private final PlayingCard[] cards;
+    private final List<PlayingCard> cards;
 
     public PlayingCardDeck() {
-        this.cards = new PlayingCard[52];
+        this.cards = new ArrayList<>(52);
 
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                this.cards[suit*13+faceValue] = new PlayingCard(new Suit(suit), faceValue);
+                int index = suit * 13 + faceValue;
+                this.cards.add(index, new PlayingCard(new Suit(suit), faceValue));
             }
         }
     }
 
     @Override
     public void shuffle() {
-        List<PlayingCard> listOfCards = new ArrayList<>(Arrays.asList(cards).subList(1, 53));
-        Collections.shuffle(listOfCards);
+        Collections.shuffle(cards);
     }
 
     @Override
@@ -30,15 +29,14 @@ public class PlayingCardDeck implements Deck {
 
         String[] result = new String[52];
         for (int i = 0; i < 52; i++) {
-            PlayingCard card = cards[i];
+            PlayingCard card = cards.get(i);
             result[i] = card.toString();
         }
         return result;
-        //return this.cards;
     }
 
     @Override
     public Card deal() {
-        return null;
+        return cards.remove(0);
     }
 }
